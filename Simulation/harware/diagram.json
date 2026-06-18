@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 57.6, "left": 24.04, "attrs": {} },
+    {
+      "type": "wokwi-ds18b20",
+      "id": "temp1",
+      "top": -49.13,
+      "left": -72.72,
+      "attrs": { "temperature": "2.4" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -44.05,
+      "left": 9.6,
+      "attrs": { "value": "4700" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 46, "left": 211.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "temp1:GND", "black", [ "h-134.25", "v-115.2" ] ],
+    [ "esp:33", "temp1:VCC", "green", [ "h0" ] ],
+    [ "servo1:GND", "esp:GND.2", "magenta", [ "h0" ] ],
+    [ "esp:5V", "servo1:V+", "magenta", [ "h0" ] ],
+    [ "servo1:PWM", "esp:18", "magenta", [ "h0" ] ],
+    [ "r1:2", "esp:33", "cyan", [ "v67.2", "h-68.4", "v115.2" ] ],
+    [ "temp1:DQ", "esp:4", "green", [ "v326.4", "h38.4" ] ],
+    [ "r1:1", "esp:4", "cyan", [ "v0", "h-19.2", "v336", "h153.6", "v-96" ] ]
+  ],
+  "dependencies": {}
+}
